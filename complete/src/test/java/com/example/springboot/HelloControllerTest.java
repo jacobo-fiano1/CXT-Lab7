@@ -24,13 +24,13 @@ public class HelloControllerTest {
 	public void getCities() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/cities").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(content().string("[{\"name\":\"Coruna\",\"id\":1,\"province\":\"A Coruna\"},{\"name\":\"Vigo\",\"id\":2,\"province\":\"Pontevedra\"},{\"name\":\"Santiago\",\"id\":3,\"province\":\"A Coruna\"},{\"name\":\"Ferrol\",\"id\":4,\"province\":\"A Coruna\"},{\"name\":\"Lugo\",\"id\":5,\"province\":\"Lugo\"},{\"name\":\"Ourense\",\"id\":6,\"province\":\"Ourense\"},{\"name\":\"Pontevedra\",\"id\":7,\"province\":\"Pontevedra\"}]"));
+				.andExpect(content().json("[{\"name\":\"Coruna\",\"id\":1,\"province\":\"A Coruna\"},{\"name\":\"Vigo\",\"id\":2,\"province\":\"Pontevedra\"},{\"name\":\"Santiago\",\"id\":3,\"province\":\"A Coruna\"},{\"name\":\"Ferrol\",\"id\":4,\"province\":\"A Coruna\"},{\"name\":\"Lugo\",\"id\":5,\"province\":\"Lugo\"},{\"name\":\"Ourense\",\"id\":6,\"province\":\"Ourense\"},{\"name\":\"Pontevedra\",\"id\":7,\"province\":\"Pontevedra\"}]"));
 	}
 
 	@Test
 	public void getCitybyId() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/cities/{id}",1).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(content().string("{\"name\":\"Coruna\",\"id\":1,\"province\":\"A Coruna\"}"));
+				.andExpect(content().json("{\"name\":\"Coruna\",\"id\":1,\"province\":\"A Coruna\"}"));
 	}
 }
