@@ -13,27 +13,27 @@ public class HelloController {
 	private final List<City> cities = new ArrayList<City>();
 
 	public HelloController(){
-		City A = new City(1, "Coruña", "A Coruña");
+		City A = new City(1, "Coruna", "A Coruna");
 		City B = new City(2, "Vigo", "Pontevedra");
-		City C = new City(3, "Santiago", "A Coruña");
-		City D = new City(4, "Ferrol", "A Coruña");
+		City C = new City(3, "Santiago", "A Coruna");
+		City D = new City(4, "Ferrol", "A Coruna");
 		City E = new City(5, "Lugo", "Lugo");
+		City F = new City(6, "Ourense", "Ourense");
+		City G = new City(7, "Pontevedra", "Pontevedra");
 		
 		this.cities.add(A);
 		this.cities.add(B);
 		this.cities.add(C);
 		this.cities.add(D);
 		this.cities.add(E);
+		this.cities.add(F);
+		this.cities.add(G);
 	}
 
 	@GetMapping("/cities")
-	public List<String> List_cities() {
-		List<String> names= new ArrayList<String>();
-		for(City city:cities){
-			names.add(city.getName());
-		}
-
-        return names;
+	public List<City> List_cities() {
+		
+        return this.cities;
 	}
 
 		@GetMapping("/cities/{id}")
