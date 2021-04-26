@@ -69,4 +69,9 @@ public class HelloController {
 		return this.countries;
 	}
 
+	@GetMapping("/countries/{id}")
+	public Country countriesg(@PathVariable int id) {
+		return countries.get(id-1);
+	}
+
 }
