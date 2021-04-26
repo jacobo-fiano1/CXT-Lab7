@@ -21,9 +21,16 @@ public class HelloControllerTest {
 	private MockMvc mvc;
 
 	@Test
-	public void getHello() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+	public void getCities() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("http://localhost:8080/cities").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(content().string(equalTo("Greetings from Spring Boot!")));
+				.andExpect(content().string("[{\"name\":\"Coruna\",\"id\":1,\"province\":\"A Coruna\"},{\"name\":\"Vigo\",\"id\":2,\"province\":\"Pontevedra\"},{\"name\":\"Santiago\",\"id\":3,\"province\":\"A Coruna\"},{\"name\":\"Ferrol\",\"id\":4,\"province\":\"A Coruna\"},{\"name\":\"Lugo\",\"id\":5,\"province\":\"Lugo\"},{\"name\":\"Ourense\",\"id\":6,\"province\":\"Ourense\"},{\"name\":\"Pontevedra\",\"id\":7,\"province\":\"Pontevedra\"}]"));
+	}
+
+	@Test
+	public void getCitybyId() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("http://localhost:8080/cities/{id}",1).accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().string("{\"name\":\"Coruna\",\"id\":1,\"province\":\"A Coruna\"}"));
 	}
 }
