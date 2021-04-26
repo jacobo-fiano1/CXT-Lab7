@@ -36,8 +36,8 @@ public class HelloController {
         return this.cities;
 	}
 
-		@GetMapping("/cities/{id}")
-	public City greeting(@PathVariable int id) {
+	@GetMapping("/cities/{id}")
+	public City City(@PathVariable int id) {
 		return cities.get(id-1);
 	}
 
