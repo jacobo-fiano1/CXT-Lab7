@@ -38,13 +38,13 @@ public class HelloControllerTest {
 	public void getCountries() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/countries").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(content().string("[{\"name\":\"Espana\",\"id\":1,\"capital\":\"Madrid\"},{\"name\":\"Francia\",\"id\":2,\"capital\":\"Paris\"},{\"name\":\"Italia\",\"id\":3,\"capital\":\"Roma\"},{\"name\":\"Grecia\",\"id\":4,\"capital\":\"Atenas\"},{\"name\":\"Croacia\",\"id\":5,\"capital\":\"Zagreb\"},{\"name\":\"Malta\",\"id\":6,\"capital\":\"La Valeta\"},{\"name\":\"Albania\",\"id\":7,\"capital\":\"Tirana\"},{\"name\":\"Chipre\",\"id\":8,\"capital\":\"Nicosia\"},{\"name\":\"Eslovenia\",\"id\":9,\"capital\":\"Ljubliana\"},{\"name\":\"Montenegro\",\"id\":10,\"capital\":\"Podgorica\"}]"));
+				.andExpect(content().json("[{\"name\":\"Espana\",\"id\":1,\"capital\":\"Madrid\"},{\"name\":\"Francia\",\"id\":2,\"capital\":\"Paris\"},{\"name\":\"Italia\",\"id\":3,\"capital\":\"Roma\"},{\"name\":\"Grecia\",\"id\":4,\"capital\":\"Atenas\"},{\"name\":\"Croacia\",\"id\":5,\"capital\":\"Zagreb\"},{\"name\":\"Malta\",\"id\":6,\"capital\":\"La Valeta\"},{\"name\":\"Albania\",\"id\":7,\"capital\":\"Tirana\"},{\"name\":\"Chipre\",\"id\":8,\"capital\":\"Nicosia\"},{\"name\":\"Eslovenia\",\"id\":9,\"capital\":\"Ljubliana\"},{\"name\":\"Montenegro\",\"id\":10,\"capital\":\"Podgorica\"}]"));
 	}
 
 	@Test
 	public void getCountry() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/countries/{id}",1).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(content().string("{\"name\":\"Espana\",\"id\":1,\"capital\":\"Madrid\"}"));
+				.andExpect(content().json("{\"name\":\"Espana\",\"id\":1,\"capital\":\"Madrid\"}"));
 	}
 }
