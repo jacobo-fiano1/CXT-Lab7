@@ -4,5 +4,5 @@ jdk:
 script:
 - test/run.sh
 notifications:
-webhooks:
-- https://udcgal.webhook.office.com/webhookb2/6367e2ec-04a8-4c74-8eac-abd7bd021238@cea1ea3e-60b2-4f75-a6c2-a6022e8f961b/TravisCI/494280f6afd444d1934dee340ebd9a6a/31553a8b-c89a-41c3-a996-e1632fb80f82
+  webhooks:
+    - https://udcgal.webhook.office.com/webhookb2/6367e2ec-04a8-4c74-8eac-abd7bd021238@cea1ea3e-60b2-4f75-a6c2-a6022e8f961b/TravisCI/494280f6afd444d1934dee340ebd9a6a/31553a8b-c89a-41c3-a996-e1632fb80f82
