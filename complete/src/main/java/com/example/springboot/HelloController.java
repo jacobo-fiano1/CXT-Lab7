@@ -73,5 +73,4 @@ public class HelloController {
 	public Country countriesg(@PathVariable int id) {
 		return countries.get(id-1);
 	}
-
 }
